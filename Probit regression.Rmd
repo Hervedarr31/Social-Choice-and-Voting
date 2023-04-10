@@ -1,0 +1,34 @@
+---
+title: "Social Choice and Voting Project"
+author: "Hervé Darricau"
+date: "09/04/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd('~/ENSAE 3A/S2/Social Choice and Voting/Project/Code')
+```
+
+```{r}
+library(MASS)
+library(stargazer)
+library(huxtable)
+
+data <- read.csv('~/ENSAE 3A/S2/Social Choice and Voting/Project/Data/database_for_regression.csv')
+```
+
+```{r}
+# Fit a probit regression model
+probit_model_urban <- glm(vote_0_1 ~ median_voter_is_urban + groupe_position, data = data, family = binomial(link = "probit"))
+
+probit_model_car <- glm(vote_0_1 ~ median_voter_isnot_car_driver + groupe_position, data = data, family = binomial(link = "probit"))
+
+# View the model summary
+stargazer(probit_model_urban, probit_model_car , type = 'text')
+```
+
+
