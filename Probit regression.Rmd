@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-setwd('~/ENSAE 3A/S2/Social Choice and Voting/Project/Code')
+setwd('~/ENSAE 3A/S2/Social Choice and Voting/Project/Social-choice-and-voting')
 ```
 
 ```{r}
